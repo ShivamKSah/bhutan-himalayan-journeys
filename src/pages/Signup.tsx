@@ -17,7 +17,7 @@ const Signup = () => {
     password: '',
     confirmPassword: '',
     agreeToTerms: false,
-    subscribeTo Updates: false
+    subscribeToUpdates: false
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
