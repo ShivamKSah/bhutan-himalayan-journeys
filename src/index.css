@@ -1,96 +1,63 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
+/* Bhutan & India Tourism Design System */
 @layer base {
   :root {
+    /* Primary Colors - Inspired by Bhutan's prayer flags and Indian cultural elements */
+    --primary: 142 71% 25%;           /* Deep Forest Green - Bhutan's forests */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 213 94% 68%;         /* Prayer Flag Blue */
+    --secondary-foreground: 0 0% 98%;
+    --accent: 45 93% 47%;             /* Monastery Gold */
+    --accent-foreground: 0 0% 11%;
+    --heritage: 25 95% 53%;           /* Saffron - Indian heritage */
+    --heritage-foreground: 0 0% 98%;
+    
+    /* Neutral Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 222 84% 5%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 222 84% 5%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --popover-foreground: 222 84% 5%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 142 71% 25%;
+    
+    /* Gradient Definitions */
+    --hero-gradient: linear-gradient(135deg, hsl(142 71% 25% / 0.9), hsl(213 94% 68% / 0.8));
+    --card-gradient: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --cta-gradient: linear-gradient(135deg, hsl(45 93% 47%), hsl(25 95% 53%));
+    
+    /* Spacing & Typography */
+    --radius: 0.75rem;
+    --hero-height: 100vh;
+    --section-padding: 5rem 0;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222 84% 5%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    --card: 222 84% 5%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    --popover: 222 84% 5%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    --primary: 142 71% 35%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 213 94% 58%;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 45 93% 57%;
+    --accent-foreground: 222 84% 5%;
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 142 71% 35%;
   }
 }
 
@@ -100,6 +67,168 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Hero Styles */
+  .hero-section {
+    @apply relative min-h-screen flex items-center justify-center text-white;
+    background: var(--hero-gradient);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero-content {
+    @apply text-center z-10 px-4 max-w-4xl mx-auto;
+  }
+
+  .hero-title {
+    @apply text-5xl md:text-7xl font-bold mb-6 leading-tight;
+    background: linear-gradient(135deg, #ffffff, #f0f9ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    @apply text-xl md:text-2xl mb-8 text-white/90 font-light;
+  }
+
+  /* Button Variants */
+  .btn-primary {
+    @apply px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+  }
+
+  .btn-heritage {
+    @apply px-8 py-4 text-heritage-foreground rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+    background: var(--cta-gradient);
+  }
+
+  .btn-heritage:hover {
+    background: linear-gradient(135deg, hsl(45 93% 42%), hsl(25 95% 48%));
+  }
+
+  /* Package Cards */
+  .package-card {
+    @apply bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer;
+    background: var(--card-gradient);
+  }
+
+  .package-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700;
+    transform: translateX(-100%);
+    animation: shine 1.5s ease-in-out;
+  }
+
+  .package-card:hover::before {
+    animation: shine 1.5s ease-in-out;
+  }
+
+  .package-image {
+    @apply w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110;
+  }
+
+  .package-content {
+    @apply p-6;
+  }
+
+  .package-title {
+    @apply text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors;
+  }
+
+  .package-price {
+    @apply text-3xl font-bold text-heritage mb-4;
+  }
+
+  /* Contact Buttons */
+  .contact-buttons {
+    @apply flex gap-3 mt-6;
+  }
+
+  .btn-whatsapp {
+    @apply flex-1 bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2;
+  }
+
+  .btn-call {
+    @apply flex-1 bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2;
+  }
+
+  /* Inquiry Section */
+  .inquiry-section {
+    @apply bg-gradient-to-br from-primary/5 to-secondary/5 py-16;
+  }
+
+  .inquiry-form {
+    @apply bg-white rounded-2xl shadow-2xl p-8 max-w-2xl mx-auto;
+  }
+
+  /* Footer */
+  .footer {
+    @apply bg-gray-900 text-white py-12;
+  }
+
+  .footer-content {
+    @apply grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto px-4;
+  }
+
+  .footer-section h3 {
+    @apply text-xl font-bold mb-4 text-heritage;
+  }
+
+  .footer-section ul li {
+    @apply mb-2;
+  }
+
+  .footer-section ul li a {
+    @apply text-gray-300 hover:text-white transition-colors;
+  }
+
+  /* Parallax Effect */
+  .parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Animations */
+  @keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .animate-shine::before {
+    animation: shine 1.5s ease-in-out;
+  }
+
+  /* Form Styles */
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200;
+  }
+
+  .form-textarea {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 min-h-32 resize-vertical;
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply text-white/90 hover:text-white transition-colors font-medium;
+  }
+
+  .nav-link.active {
+    @apply text-white border-b-2 border-heritage;
   }
 }
