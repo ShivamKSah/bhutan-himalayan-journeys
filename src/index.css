@@ -122,23 +122,28 @@
 
   /* Package Cards */
   .package-card {
-    @apply bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group cursor-pointer;
+    @apply bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer relative;
     background: var(--card-gradient);
   }
 
   .package-card::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700;
+    @apply absolute inset-0 opacity-0 transition-opacity duration-700;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
     transform: translateX(-100%);
-    animation: shine 1.5s ease-in-out;
   }
 
   .package-card:hover::before {
+    opacity: 1;
     animation: shine 1.5s ease-in-out;
   }
 
   .package-image {
-    @apply w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110;
+    @apply w-full h-64 object-cover transition-transform duration-500;
+  }
+
+  .package-card:hover .package-image {
+    @apply scale-110;
   }
 
   .package-content {
@@ -146,7 +151,11 @@
   }
 
   .package-title {
-    @apply text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors;
+    @apply text-2xl font-bold mb-3 text-foreground transition-colors;
+  }
+
+  .package-card:hover .package-title {
+    @apply text-primary;
   }
 
   .package-price {
