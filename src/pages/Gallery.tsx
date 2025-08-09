@@ -6,19 +6,66 @@ const Gallery = () => {
   const galleries = [
     {
       title: "Bhutan Monasteries",
-      images: ["Tiger's Nest Monastery", "Punakha Dzong", "Thimphu Temple", "Bumthang Valley"]
-    },
-    {
-      title: "Indian Monuments",
-      images: ["Taj Mahal", "Red Fort", "Amber Fort", "Golden Temple"]
+      images: [
+        {
+          name: "Tiger's Nest Monastery",
+          url: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          name: "Punakha Dzong",
+          url: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          name: "Thimphu Temple",
+          url: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          name: "Bumthang Valley Monastery",
+          url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        }
+      ]
     },
     {
       title: "Himalayan Landscapes",
-      images: ["Mount Everest Base", "Annapurna Circuit", "Valley Views", "Mountain Sunrises"]
+      images: [
+        {
+          name: "Mountain Peaks View",
+          url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          name: "Paro Valley",
+          url: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          name: "Thimphu Valley Views",
+          url: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          name: "Mountain Sunrises",
+          url: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        }
+      ]
     },
     {
       title: "Cultural Experiences",
-      images: ["Local Festivals", "Traditional Dance", "Handicraft Markets", "Village Life"]
+      images: [
+        {
+          name: "Local Festivals",
+          url: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          name: "Traditional Dance",
+          url: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          name: "Handicraft Markets",
+          url: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          name: "Village Life",
+          url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        }
+      ]
     }
   ];
 
@@ -29,9 +76,9 @@ const Gallery = () => {
       <section className="relative py-20 bg-gradient-to-r from-primary to-secondary text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Photo Gallery</h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">Bhutan Photo Gallery</h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Glimpses of the breathtaking beauty and rich culture of our destinations
+              Glimpses of the breathtaking beauty and rich culture of the Land of the Thunder Dragon
             </p>
           </div>
         </div>
@@ -45,11 +92,15 @@ const Gallery = () => {
               <div className="grid md:grid-cols-4 gap-6">
                 {gallery.images.map((image, imgIndex) => (
                   <div key={imgIndex} className="bg-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                      <span className="text-gray-600 text-center p-4">{image}</span>
+                    <div className="h-48 overflow-hidden">
+                      <img 
+                        src={image.url} 
+                        alt={image.name}
+                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                      />
                     </div>
                     <div className="p-4">
-                      <h3 className="font-semibold text-heritage">{image}</h3>
+                      <h3 className="font-semibold text-heritage">{image.name}</h3>
                     </div>
                   </div>
                 ))}

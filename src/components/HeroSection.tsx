@@ -17,6 +17,13 @@ const HeroSection = () => {
     }
   };
 
+  const handlePlanJourneyClick = () => {
+    const inquirySection = document.getElementById('inquiry');
+    if (inquirySection) {
+      inquirySection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative h-screen overflow-hidden">
       {/* Parallax Background */}
@@ -82,7 +89,7 @@ const HeroSection = () => {
                 Explore Bhutan Packages
               </button>
               <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={handlePlanJourneyClick}
                 className="btn-secondary text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
               >
                 Plan Your Journey

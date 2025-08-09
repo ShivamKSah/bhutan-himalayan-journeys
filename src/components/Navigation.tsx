@@ -10,6 +10,7 @@ const Navigation = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Packages', path: '/packages' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -37,14 +38,6 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="flex items-center space-x-4">
-              <Link to="/login" className="text-gray-700 hover:text-primary transition-colors">
-                Login
-              </Link>
-              <Link to="/signup" className="btn-heritage text-sm px-6 py-2">
-                Sign Up
-              </Link>
-            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -72,22 +65,6 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              <div className="border-t pt-2 mt-2">
-                <Link 
-                  to="/login" 
-                  className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Login
-                </Link>
-                <Link 
-                  to="/signup" 
-                  className="block px-3 py-2 text-heritage font-semibold"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Sign Up
-                </Link>
-              </div>
             </div>
           </div>
         )}
