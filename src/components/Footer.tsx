@@ -32,10 +32,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: 'https://facebook.com/himalayanjourneys' },
-    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/himalayanjourneys' },
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/himalayanjourneys' },
-    { name: 'Youtube', icon: Youtube, href: 'https://youtube.com/@himalayanjourneys' }
+    { name: 'Facebook', icon: Facebook, href: 'https://facebook.com/newartours' },
+    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/newartours' },
+    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/newartours' },
+    { name: 'Youtube', icon: Youtube, href: 'https://youtube.com/@newartours' }
   ];
 
   return (
@@ -45,12 +45,12 @@ const Footer = () => {
         <div className="footer-section">
           <div className="flex items-center space-x-2 mb-6">
             <span className="text-3xl">🏔️</span>
-            <span className="text-xl font-bold text-white">Himalayan Journeys</span>
+            <span className="text-xl font-bold text-white">NEWAR Tours and travels</span>
           </div>
           <p className="text-gray-300 mb-8 leading-relaxed text-sm">
-            Your trusted partner for authentic travel experiences in Bhutan and India. 
+            Your trusted partner for authentic travel experiences in Bhutan. 
             We specialize in creating unforgettable journeys that connect you with 
-            the rich culture, spirituality, and natural beauty of the Himalayas.
+            the rich culture, spirituality, and natural beauty of the Last Shangri-La.
           </p>
           
           {/* Contact Info */}
@@ -68,13 +68,14 @@ const Footer = () => {
               <div>
                 <p className="text-sm">+91 11 4567 8901</p>
                 <p className="text-sm">+91 98765 43210</p>
+                <p className="text-sm">Emergency: +91 91234 56789</p>
               </div>
             </div>
             <div className="flex items-center space-x-3 text-gray-300">
               <Mail size={18} className="text-heritage flex-shrink-0" />
               <div>
-                <p className="text-sm">info@himalayanjourneys.com</p>
-                <p className="text-sm">bookings@himalayanjourneys.com</p>
+                <p className="text-sm">info@newartours.com</p>
+                <p className="text-sm">bookings@newartours.com</p>
               </div>
             </div>
           </div>
@@ -182,7 +183,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-center md:text-left">
               <p className="text-gray-400 text-sm">
-                © {currentYear} Himalayan Journeys. All rights reserved.
+                © {currentYear} NEWAR Tours and travels. All rights reserved.
               </p>
               <p className="text-gray-500 text-xs mt-1">
                 Reg. No: TRV/DL/2020/12345 | GST: 07AABCH1234A1Z5

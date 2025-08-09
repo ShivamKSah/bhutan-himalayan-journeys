@@ -5,7 +5,6 @@ interface PackageCardProps {
   id: string;
   title: string;
   description: string;
-  price: string;
   duration: string;
   groupSize: string;
   location: string;
@@ -17,7 +16,6 @@ const PackageCard = ({
   id, 
   title, 
   description, 
-  price, 
   duration, 
   groupSize, 
   location, 
@@ -26,12 +24,12 @@ const PackageCard = ({
 }: PackageCardProps) => {
   
   const handleWhatsApp = () => {
-    const message = encodeURIComponent(`Hi! I'm interested in the ${title} package. Could you provide more details?`);
-    window.open(`https://wa.me/WHATSAPP_NUMBER?text=${message}`, '_blank');
+    const message = encodeURIComponent(`Hi! I'm interested in the ${title} package. Could you provide more details and pricing information?`);
+    window.open(`https://wa.me/+919876543210?text=${message}`, '_blank');
   };
 
   const handleCall = () => {
-    window.open('tel:PHONE_NUMBER', '_self');
+    window.open('tel:+919876543210', '_self');
   };
 
   return (
@@ -42,8 +40,8 @@ const PackageCard = ({
           alt={title}
           className="package-image"
         />
-        <div className="absolute top-4 right-4 bg-heritage text-heritage-foreground px-3 py-1 rounded-full font-bold">
-          {price}
+        <div className="absolute top-4 right-4 bg-heritage text-heritage-foreground px-3 py-1 rounded-full font-bold text-sm">
+          Contact for Price
         </div>
         <div className="absolute bottom-4 left-4 flex items-center text-white bg-black/50 px-3 py-1 rounded-full">
           <MapPin size={16} className="mr-1" />
