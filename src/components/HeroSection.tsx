@@ -29,32 +29,28 @@ const HeroSection = () => {
         }}
       />
       
-      {/* Enhanced overlay with better gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+      {/* Overlay with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
       
-      {/* Enhanced floating elements for more depth */}
+      {/* Floating elements for depth */}
       <div className="absolute inset-0">
         <div 
-          className="absolute top-20 left-10 w-3 h-3 bg-white/20 rounded-full animate-pulse"
+          className="absolute top-20 left-10 w-2 h-2 bg-white/30 rounded-full"
           style={{ transform: `translateY(${scrollY * 0.3}px)` }}
         />
         <div 
-          className="absolute top-32 right-20 w-2 h-2 bg-heritage/30 rounded-full animate-pulse"
+          className="absolute top-32 right-20 w-3 h-3 bg-white/20 rounded-full"
           style={{ transform: `translateY(${scrollY * 0.4}px)` }}
         />
         <div 
-          className="absolute bottom-40 left-1/4 w-4 h-4 bg-white/10 rounded-full animate-pulse"
+          className="absolute bottom-40 left-1/4 w-1 h-1 bg-white/40 rounded-full"
           style={{ transform: `translateY(${scrollY * -0.2}px)` }}
-        />
-        <div 
-          className="absolute top-1/3 right-1/3 w-1 h-1 bg-heritage/40 rounded-full animate-pulse"
-          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         />
       </div>
       
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center min-h-screen">
-        <div className="text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div className="text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
           <div 
             className="animate-fade-in"
             style={{ transform: `translateY(${scrollY * -0.1}px)` }}
@@ -62,13 +58,13 @@ const HeroSection = () => {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
               Discover the Mystical Beauty of
               <br />
-              <span className="text-transparent bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text drop-shadow-lg">
+              <span className="text-heritage bg-gradient-to-r from-heritage to-yellow-400 bg-clip-text text-transparent">
                 Bhutan
               </span>
             </h1>
             
             <p 
-              className="text-xl md:text-2xl text-white/95 max-w-4xl mx-auto mb-12 leading-relaxed font-medium"
+              className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-12 leading-relaxed"
               style={{ transform: `translateY(${scrollY * -0.05}px)` }}
             >
               Embark on an unforgettable journey through ancient monasteries, sacred temples,
@@ -81,13 +77,13 @@ const HeroSection = () => {
             >
               <button 
                 onClick={handleExploreClick}
-                className="btn-heritage text-lg px-10 py-4 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl shadow-lg"
+                className="btn-heritage text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
               >
                 Explore Bhutan Packages
               </button>
               <button 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="btn-secondary text-lg px-10 py-4 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl shadow-lg"
+                className="btn-secondary text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
               >
                 Plan Your Journey
               </button>
@@ -96,13 +92,13 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Enhanced animated scroll indicator */}
+      {/* Animated scroll indicator */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
         <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm">
-            <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
           </div>
-          <p className="text-white/80 text-sm mt-2 text-center font-medium">Scroll to explore</p>
+          <p className="text-white/70 text-sm mt-2 text-center">Scroll to explore</p>
         </div>
       </div>
     </section>

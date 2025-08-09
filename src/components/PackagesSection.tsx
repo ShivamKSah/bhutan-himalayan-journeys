@@ -7,6 +7,7 @@ const PackagesSection = () => {
       id: '1',
       title: 'Mystical Bhutan Explorer',
       description: 'Experience the Last Shangri-La with visits to Tiger\'s Nest Monastery, Thimphu\'s weekend markets, and the ancient Punakha Dzong. Witness the untouched beauty of Bhutan\'s landscapes.',
+      price: '$2,499',
       duration: '8 Days / 7 Nights',
       groupSize: '2-12 People',
       location: 'Bhutan',
@@ -23,6 +24,7 @@ const PackagesSection = () => {
       id: '2',
       title: 'Bhutan Cultural Heritage',
       description: 'Immerse yourself in Bhutan\'s rich Buddhist culture, ancient monasteries, and traditional way of life. Experience authentic Bhutanese hospitality and customs.',
+      price: '$2,199',
       duration: '7 Days / 6 Nights',
       groupSize: '4-10 People',
       location: 'Bhutan',
@@ -39,6 +41,7 @@ const PackagesSection = () => {
       id: '3',
       title: 'Bhutan Adventure Trek',
       description: 'For the adventurous souls seeking mountain thrills. Trek through pristine valleys, camp under starlit skies, and experience the raw beauty of Bhutan\'s Himalayas.',
+      price: '$2,799',
       duration: '10 Days / 9 Nights',
       groupSize: '4-8 People',
       location: 'Bhutan',
@@ -55,6 +58,7 @@ const PackagesSection = () => {
       id: '4',
       title: 'Eastern Bhutan Discovery',
       description: 'Explore the lesser-known eastern regions of Bhutan. Discover remote villages, unique textiles, and pristine landscapes away from the usual tourist trails.',
+      price: '$2,999',
       duration: '12 Days / 11 Nights',
       groupSize: '6-10 People',
       location: 'Eastern Bhutan',
@@ -71,6 +75,7 @@ const PackagesSection = () => {
       id: '5',
       title: 'Bhutan Spiritual Journey',
       description: 'A transformative journey through Buddhist monasteries and sacred sites. Perfect for spiritual seekers looking for inner peace and enlightenment.',
+      price: '$2,399',
       duration: '9 Days / 8 Nights',
       groupSize: '6-12 People',
       location: 'Bhutan',
@@ -87,6 +92,7 @@ const PackagesSection = () => {
       id: '6',
       title: 'Bhutan Festival Experience',
       description: 'Time your visit with Bhutan\'s colorful festivals. Witness masked dances, traditional music, and vibrant celebrations in ancient monastery courtyards.',
+      price: '$3,199',
       duration: '8 Days / 7 Nights',
       groupSize: '4-14 People',
       location: 'Bhutan',
@@ -131,7 +137,7 @@ const PackagesSection = () => {
             Can't find the perfect Bhutan package? We specialize in customized itineraries!
           </p>
           <button 
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('inquiry')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-primary"
           >
             Create Custom Bhutan Package
