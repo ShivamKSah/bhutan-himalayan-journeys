@@ -9,8 +9,8 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'Packages', path: '#packages' },
-    { name: 'About', path: '#about' },
+    { name: 'Packages', path: '/packages' },
+    { name: 'About', path: '/about' },
     { name: 'Contact', path: '#contact' },
   ];
 
@@ -30,23 +30,36 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-primary">🏔️ Himalayan</span>
-            <span className="text-2xl font-bold text-heritage">Journeys</span>
+            <span className="text-2xl font-bold text-primary">🏔️ NEWAR</span>
+            <span className="text-2xl font-bold text-heritage">Tours and travels</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavClick(item.path)}
-                className={`nav-link text-gray-700 hover:text-primary transition-colors ${
-                  location.pathname === item.path ? 'text-primary font-semibold' : ''
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
+            {navItems.map((item) => {
+              if (item.path.startsWith('#')) {
+                return (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavClick(item.path)}
+                    className="nav-link text-gray-700 hover:text-primary transition-colors"
+                  >
+                    {item.name}
+                  </button>
+                );
+              }
+              return (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`nav-link text-gray-700 hover:text-primary transition-colors ${
+                    location.pathname === item.path ? 'text-primary font-semibold' : ''
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
             <div className="flex items-center space-x-4">
               <Link to="/login" className="text-gray-700 hover:text-primary transition-colors">
                 Login
@@ -72,15 +85,29 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden bg-white border-t">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.path)}
-                  className="block w-full text-left px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                >
-                  {item.name}
-                </button>
-              ))}
+              {navItems.map((item) => {
+                if (item.path.startsWith('#')) {
+                  return (
+                    <button
+                      key={item.name}
+                      onClick={() => handleNavClick(item.path)}
+                      className="block w-full text-left px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                    >
+                      {item.name}
+                    </button>
+                  );
+                }
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
               <div className="border-t pt-2 mt-2">
                 <Link 
                   to="/login" 
