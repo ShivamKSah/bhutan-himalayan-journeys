@@ -1,13 +1,11 @@
 
 import { useState } from 'react';
-import { Search, Filter, Star, Clock, Users, MapPin, Heart } from 'lucide-react';
+import { Search, Filter, Star, Clock, Users, MapPin, Heart, Phone, MessageCircle } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
 const Packages = () => {
-  const [selectedDestinations, setSelectedDestinations] = useState<string[]>([]);
   const [selectedDurations, setSelectedDurations] = useState<string[]>([]);
-  const [selectedPriceRanges, setSelectedPriceRanges] = useState<string[]>([]);
   const [selectedPackageTypes, setSelectedPackageTypes] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState('Most Popular');
   const [searchTerm, setSearchTerm] = useState('');
@@ -16,156 +14,81 @@ const Packages = () => {
     {
       id: 1,
       title: "Bhutan Cultural Heritage",
-      location: "Thimphu, Bhutan",
+      location: "Thimphu, Paro, Punakha",
       duration: "7 Days",
-      price: "$1,299",
-      originalPrice: "$1,599",
       rating: 4.8,
       reviews: 245,
       image: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       description: "Explore ancient monasteries, traditional festivals, and pristine nature",
-      destination: "Bhutan",
-      priceRange: "$1000-$2000",
       packageType: "Cultural",
       highlights: ["Tiger's Nest Monastery", "Thimphu Weekend Market", "Punakha Dzong"]
     },
     {
       id: 2,
-      title: "Golden Triangle India",
-      location: "Delhi, Agra, Jaipur",
-      duration: "10 Days",
-      price: "$899",
-      originalPrice: "$1,199",
-      rating: 4.6,
-      reviews: 512,
-      image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Experience India's most iconic destinations including the magnificent Taj Mahal",
-      destination: "India",
-      priceRange: "$500-$1000",
-      packageType: "Cultural",
-      highlights: ["Taj Mahal Sunrise", "Red Fort Delhi", "Amber Palace Jaipur"]
-    },
-    {
-      id: 3,
       title: "Himalayan Adventure Trek",
-      location: "Nepal & Bhutan",
+      location: "Paro, Thanza, Bumthang",
       duration: "15 Days",
-      price: "$1,899",
-      originalPrice: "$2,299",
       rating: 4.9,
       reviews: 128,
       image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       description: "Trek through pristine mountain trails and witness breathtaking Himalayan views",
-      destination: "Combined",
-      priceRange: "$1000-$2000",
       packageType: "Adventure",
-      highlights: ["Everest Base Camp", "Mountain Villages", "Sherpa Culture"]
+      highlights: ["Mountain Villages", "Sherpa Culture", "Himalayan Views"]
     },
     {
-      id: 4,
-      title: "Kerala Backwaters Cruise",
-      location: "Alleppey, India",
-      duration: "5 Days",
-      price: "$699",
-      originalPrice: "$899",
-      rating: 4.7,
-      reviews: 342,
-      image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Sail through serene backwaters, experience local culture and cuisine",
-      destination: "India",
-      priceRange: "$500-$1000",
-      packageType: "Luxury",
-      highlights: ["Houseboat Stay", "Spice Gardens", "Traditional Cuisine"]
-    },
-    {
-      id: 5,
-      title: "Rajasthan Royal Heritage",
-      location: "Rajasthan, India",
-      duration: "12 Days",
-      price: "$1,199",
-      originalPrice: "$1,499",
-      rating: 4.8,
-      reviews: 289,
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Explore magnificent palaces, desert landscapes, and royal heritage",
-      destination: "India",
-      priceRange: "$1000-$2000",
-      packageType: "Luxury",
-      highlights: ["Palace Hotels", "Desert Safari", "Folk Performances"]
-    },
-    {
-      id: 6,
-      title: "Bhutan & Nepal Combined",
-      location: "Kathmandu & Thimphu",
-      duration: "14 Days",
-      price: "$2,299",
-      originalPrice: "$2,799",
-      rating: 4.9,
-      reviews: 167,
-      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Experience the best of both Himalayan kingdoms in one incredible journey",
-      destination: "Combined",
-      priceRange: "$2000+",
-      packageType: "Cultural",
-      highlights: ["Two Countries", "Mountain Views", "Buddhist Monasteries"]
-    },
-    {
-      id: 7,
-      title: "Spiritual India Journey",
-      location: "Varanasi, Rishikesh",
-      duration: "9 Days",
-      price: "$999",
-      originalPrice: "$1,299",
-      rating: 4.6,
-      reviews: 198,
-      image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Embark on a transformative spiritual journey through sacred India",
-      destination: "India",
-      priceRange: "$500-$1000",
-      packageType: "Spiritual",
-      highlights: ["Ganga Aarti", "Yoga Sessions", "Meditation Retreats"]
-    },
-    {
-      id: 8,
+      id: 3,
       title: "Eastern Bhutan Explorer",
       location: "Mongar, Trashigang",
       duration: "11 Days",
-      price: "$1,599",
-      originalPrice: "$1,899",
       rating: 4.7,
       reviews: 89,
       image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       description: "Discover remote villages and untouched landscapes of Eastern Bhutan",
-      destination: "Bhutan",
-      priceRange: "$1000-$2000",
       packageType: "Adventure",
       highlights: ["Remote Villages", "Textile Weaving", "Pristine Nature"]
     },
     {
-      id: 9,
-      title: "Goa Beach Paradise",
-      location: "North & South Goa",
-      duration: "6 Days",
-      price: "$599",
-      originalPrice: "$799",
+      id: 4,
+      title: "Bhutan Spiritual Journey",
+      location: "Paro, Thimphu, Punakha",
+      duration: "9 Days",
+      rating: 4.6,
+      reviews: 198,
+      image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description: "Embark on a transformative spiritual journey through sacred Bhutan",
+      packageType: "Spiritual",
+      highlights: ["Meditation Sessions", "Temple Ceremonies", "Spiritual Guidance"]
+    },
+    {
+      id: 5,
+      title: "Bhutan Festival Experience",
+      location: "Paro, Thimphu",
+      duration: "8 Days",
+      rating: 4.8,
+      reviews: 167,
+      image: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description: "Experience Bhutan's colorful festivals with masked dances and celebrations",
+      packageType: "Cultural",
+      highlights: ["Traditional Festivals", "Masked Dances", "Cultural Events"]
+    },
+    {
+      id: 6,
+      title: "Western Bhutan Discovery",
+      location: "Paro, Haa Valley, Samtse",
+      duration: "10 Days",
       rating: 4.5,
-      reviews: 445,
-      image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Relax on pristine beaches, enjoy water sports and vibrant nightlife",
-      destination: "India",
-      priceRange: "Under $500",
-      packageType: "Luxury",
-      highlights: ["Beach Resorts", "Water Sports", "Portuguese Heritage"]
+      reviews: 134,
+      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description: "Explore the western regions with beautiful valleys and ancient sites",
+      packageType: "Cultural",
+      highlights: ["Haa Valley", "Ancient Sites", "Beautiful Landscapes"]
     }
   ];
 
-  const destinations = ["Bhutan", "India", "Combined"];
   const durations = ["1-5 Days", "6-8 Days", "7-10 Days", "10+ Days"];
-  const priceRanges = ["Under $500", "$500-$1000", "$1000-$2000", "$2000+"];
-  const packageTypes = ["Cultural", "Adventure", "Spiritual", "Luxury"];
+  const packageTypes = ["Cultural", "Adventure", "Spiritual"];
 
   const filteredPackages = allPackages.filter(pkg => {
-    const matchesDestination = selectedDestinations.length === 0 || selectedDestinations.includes(pkg.destination);
     const matchesDuration = selectedDurations.length === 0 || selectedDurations.some(duration => {
       const days = parseInt(pkg.duration);
       switch(duration) {
@@ -176,28 +99,17 @@ const Packages = () => {
         default: return true;
       }
     });
-    const matchesPrice = selectedPriceRanges.length === 0 || selectedPriceRanges.includes(pkg.priceRange);
     const matchesType = selectedPackageTypes.length === 0 || selectedPackageTypes.includes(pkg.packageType);
     const matchesSearch = searchTerm === '' || pkg.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                          pkg.location.toLowerCase().includes(searchTerm.toLowerCase());
     
-    return matchesDestination && matchesDuration && matchesPrice && matchesType && matchesSearch;
+    return matchesDuration && matchesType && matchesSearch;
   });
 
   const handleFilterChange = (filterType: string, value: string, checked: boolean) => {
     switch(filterType) {
-      case 'destination':
-        setSelectedDestinations(prev => 
-          checked ? [...prev, value] : prev.filter(item => item !== value)
-        );
-        break;
       case 'duration':
         setSelectedDurations(prev => 
-          checked ? [...prev, value] : prev.filter(item => item !== value)
-        );
-        break;
-      case 'price':
-        setSelectedPriceRanges(prev => 
           checked ? [...prev, value] : prev.filter(item => item !== value)
         );
         break;
@@ -210,10 +122,17 @@ const Packages = () => {
   };
 
   const clearAllFilters = () => {
-    setSelectedDestinations([]);
     setSelectedDurations([]);
-    setSelectedPriceRanges([]);
     setSelectedPackageTypes([]);
+  };
+
+  const handleWhatsApp = (title: string) => {
+    const message = encodeURIComponent(`Hi! I'm interested in the ${title} package. Could you provide more details and pricing?`);
+    window.open(`https://wa.me/919876543210?text=${message}`, '_blank');
+  };
+
+  const handleCall = () => {
+    window.open('tel:+919876543210', '_self');
   };
 
   return (
@@ -223,9 +142,9 @@ const Packages = () => {
       {/* Hero Section */}
       <section className="relative py-20 bg-primary text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">Holiday Packages</h1>
+          <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">Bhutan Packages</h1>
           <p className="text-xl max-w-3xl mx-auto mb-8">
-            Discover amazing destinations in Bhutan and India with our carefully curated travel packages
+            Discover amazing destinations in Bhutan with our carefully curated travel packages
           </p>
           
           {/* Search Bar */}
@@ -260,25 +179,6 @@ const Packages = () => {
                 </button>
               </div>
 
-              {/* Destinations Filter */}
-              <div className="mb-6">
-                <h4 className="font-semibold mb-3">Destinations</h4>
-                {destinations.map(destination => (
-                  <label key={destination} className="flex items-center mb-2">
-                    <input
-                      type="checkbox"
-                      className="mr-3 rounded"
-                      checked={selectedDestinations.includes(destination)}
-                      onChange={(e) => handleFilterChange('destination', destination, e.target.checked)}
-                    />
-                    <span className="text-sm">{destination}</span>
-                    <span className="ml-auto text-xs text-gray-500">
-                      {allPackages.filter(pkg => pkg.destination === destination).length}
-                    </span>
-                  </label>
-                ))}
-              </div>
-
               {/* Duration Filter */}
               <div className="mb-6">
                 <h4 className="font-semibold mb-3">Duration</h4>
@@ -291,22 +191,6 @@ const Packages = () => {
                       onChange={(e) => handleFilterChange('duration', duration, e.target.checked)}
                     />
                     <span className="text-sm">{duration}</span>
-                  </label>
-                ))}
-              </div>
-
-              {/* Price Range Filter */}
-              <div className="mb-6">
-                <h4 className="font-semibold mb-3">Price Range (USD)</h4>
-                {priceRanges.map(range => (
-                  <label key={range} className="flex items-center mb-2">
-                    <input
-                      type="checkbox"
-                      className="mr-3 rounded"
-                      checked={selectedPriceRanges.includes(range)}
-                      onChange={(e) => handleFilterChange('price', range, e.target.checked)}
-                    />
-                    <span className="text-sm">{range}</span>
                   </label>
                 ))}
               </div>
@@ -345,8 +229,6 @@ const Packages = () => {
                 className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option>Most Popular</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
                 <option>Duration: Short to Long</option>
                 <option>Highest Rated</option>
               </select>
@@ -402,16 +284,20 @@ const Packages = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-2xl font-bold text-heritage">{pkg.price}</span>
-                          <span className="text-sm text-gray-500 line-through">{pkg.originalPrice}</span>
-                        </div>
-                        <div className="text-xs text-gray-500">per person</div>
-                      </div>
-                      <button className="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full font-semibold transition-colors">
-                        View Details
+                    <div className="flex gap-2">
+                      <button 
+                        onClick={() => handleWhatsApp(pkg.title)}
+                        className="flex-1 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+                      >
+                        <MessageCircle size={16} />
+                        WhatsApp
+                      </button>
+                      <button 
+                        onClick={handleCall}
+                        className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+                      >
+                        <Phone size={16} />
+                        Call
                       </button>
                     </div>
                   </div>
@@ -432,12 +318,6 @@ const Packages = () => {
                 </button>
               </div>
             )}
-
-            <div className="text-center mt-12">
-              <button className="bg-heritage hover:bg-heritage/90 text-white px-8 py-3 rounded-full font-semibold transition-colors">
-                Load More Packages
-              </button>
-            </div>
           </div>
         </div>
       </div>

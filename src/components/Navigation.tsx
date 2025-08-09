@@ -11,18 +11,8 @@ const Navigation = () => {
     { name: 'Home', path: '/' },
     { name: 'Packages', path: '/packages' },
     { name: 'About', path: '/about' },
-    { name: 'Contact', path: '#contact' },
+    { name: 'Contact', path: '/contact' },
   ];
-
-  const handleNavClick = (path: string) => {
-    if (path.startsWith('#')) {
-      const element = document.querySelector(path);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-    setIsOpen(false);
-  };
 
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-lg z-50">
@@ -36,30 +26,17 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => {
-              if (item.path.startsWith('#')) {
-                return (
-                  <button
-                    key={item.name}
-                    onClick={() => handleNavClick(item.path)}
-                    className="nav-link text-gray-700 hover:text-primary transition-colors"
-                  >
-                    {item.name}
-                  </button>
-                );
-              }
-              return (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`nav-link text-gray-700 hover:text-primary transition-colors ${
-                    location.pathname === item.path ? 'text-primary font-semibold' : ''
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`nav-link text-gray-700 hover:text-primary transition-colors ${
+                  location.pathname === item.path ? 'text-primary font-semibold' : ''
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
             <div className="flex items-center space-x-4">
               <Link to="/login" className="text-gray-700 hover:text-primary transition-colors">
                 Login
@@ -85,29 +62,16 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden bg-white border-t">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => {
-                if (item.path.startsWith('#')) {
-                  return (
-                    <button
-                      key={item.name}
-                      onClick={() => handleNavClick(item.path)}
-                      className="block w-full text-left px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                    >
-                      {item.name}
-                    </button>
-                  );
-                }
-                return (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    className="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                );
-              })}
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
               <div className="border-t pt-2 mt-2">
                 <Link 
                   to="/login" 

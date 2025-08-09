@@ -55,10 +55,10 @@ const HeroSection = () => {
             className="animate-fade-in"
             style={{ transform: `translateY(${scrollY * -0.1}px)` }}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight text-white">
               Discover the Mystical Beauty of
               <br />
-              <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text text-transparent font-extrabold drop-shadow-lg">
+              <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-amber-400 bg-clip-text text-transparent font-extrabold drop-shadow-lg">
                 Bhutan
               </span>
             </h1>
