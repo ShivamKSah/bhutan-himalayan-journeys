@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Send, MapPin, Phone, Mail } from 'lucide-react';
 import { toast } from 'sonner';
@@ -92,10 +91,10 @@ const InquirySection = () => {
                     <Phone className="text-heritage" size={24} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Call Us</h4>
+                    <h4 className="font-semibold text-gray-900">Call / WhatsApp</h4>
                     <p className="text-gray-600 mt-1">
-                      +91 PHONE_NUMBER<br />
-                      Available 9 AM - 8 PM IST
+                      +91 98765 43210<br />
+                      Available 24/7
                     </p>
                   </div>
                 </div>
@@ -107,7 +106,7 @@ const InquirySection = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900">Email Us</h4>
                     <p className="text-gray-600 mt-1">
-                      info@himalayanjourneys.com<br />
+                      info@newartours.com<br />
                       Response within 24 hours
                     </p>
                   </div>
@@ -166,7 +165,7 @@ const InquirySection = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="form-input"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+91 98765 43210"
                   />
                 </div>
                 
@@ -182,9 +181,11 @@ const InquirySection = () => {
                     className="form-input"
                   >
                     <option value="">Select destination</option>
-                    <option value="bhutan">Bhutan</option>
-                    <option value="india">India</option>
-                    <option value="both">Both Bhutan & India</option>
+                    <option value="thimphu">Thimphu</option>
+                    <option value="paro">Paro & Tiger's Nest</option>
+                    <option value="punakha">Punakha</option>
+                    <option value="phobjikha">Phobjikha Valley</option>
+                    <option value="bumthang">Bumthang</option>
                     <option value="custom">Custom Itinerary</option>
                   </select>
                 </div>

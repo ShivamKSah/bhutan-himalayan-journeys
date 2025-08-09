@@ -58,7 +58,7 @@ const HeroSection = () => {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
               Discover the Mystical Beauty of
               <br />
-              <span className="text-heritage bg-gradient-to-r from-heritage to-yellow-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text text-transparent font-extrabold drop-shadow-lg">
                 Bhutan
               </span>
             </h1>
